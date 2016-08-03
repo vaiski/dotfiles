@@ -1,0 +1,43 @@
+#!/bin/bash
+SCRIPTNAME=`basename "$0"`
+
+HELP="usage: $SCRIPTNAME domain [port]
+
+Display SSL certificate information.
+
+positional arguments:
+  domain      address of the server to connect to
+  port        port of the server to connect to
+
+optional arguments:
+  -h          show this help message and exit"
+
+if [ -z $1 ]
+then
+    echo "Error: Domain not provided."
+    echo "$HELP"
+    exit 1
+else
+    while getopts ':h' option; do
+        case "$option" in
+            h) echo "$HELP"
+               exit
+               ;;
+            \?) printf "Invalid option: -%s\n" "$OPTARG" >&2
+                echo "$HELP" >&2
+                exit 1
+                ;;
+        esac
+    done
+
+    DOMAIN=$1
+fi
+
+if [ ! -z $2 ]
+then
+    PORT=$2
+else
+    PORT=443
+fi
+
+echo | openssl s_client -connect "$DOMAIN:$PORT" 2> /dev/null | openssl x509 -noout -text

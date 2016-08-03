@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os, sys, string, argparse
+
+SPECIAL_CHARS = '^!$%&/()=?{[]}+~#-_.:,;<>|\\'
+
+
+def config():
+    parser = argparse.ArgumentParser(description='Generate a password')
+    parser.add_argument('length', metavar='length', type=int, nargs='?',
+                        default=8, help='length of the generated password')
+    return parser.parse_args()
+
+
+def genpass(length=8):
+    chars = string.letters + string.digits + SPECIAL_CHARS
+    result = []
+
+    while len(result) < int(length):
+        char = os.urandom(1)
+
+        if char in chars:
+            result.append(char)
+
+    return ''.join(result)
+
+
+if __name__ == '__main__':
+    args = config()
+    print genpass(**args.__dict__)
