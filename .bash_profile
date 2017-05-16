@@ -12,6 +12,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias serve="python -m SimpleHTTPServer"
+alias dm="docker-machine"
 
 # Trim newlines and copy
 alias c="tr -d '\n' | pbcopy"
