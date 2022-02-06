@@ -5,16 +5,16 @@
 			 ("melpa" . "https://melpa.org/packages/")
 			 ))
 
-(when (< emacs-major-version 27) (package-initialize))
-
 (defvar required-packages '(
 			    dracula-theme
+			    editorconfig
 			    ivy
 			    magit
+			    mood-line
 			    org
 			    projectile
-			    ripgrep
 			    treemacs
+			    treemacs-magit
 			    treemacs-projectile
 			    ))
 
