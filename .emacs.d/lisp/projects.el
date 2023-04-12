@@ -7,3 +7,6 @@
 
 (use-package counsel-projectile
   :ensure t)
+
+(use-package projectile-ripgrep
+  :ensure t)
