@@ -30,3 +30,15 @@
   :ensure t
   :config
   (load-theme 'monokai t))
+
+(use-package centaur-tabs
+  :ensure t
+  :config
+  (centaur-tabs-mode t)
+  (centaur-tabs-headline-match)
+  (setq centaur-tabs-style "bar")
+  (setq centaur-tabs-height 32)
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-set-bar 'over)
+  (setq centaur-tabs-set-modified-marker t)
+  (centaur-tabs-change-fonts "Fira Code" 120))
