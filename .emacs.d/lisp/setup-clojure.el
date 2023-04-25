@@ -1,17 +1,3 @@
-(use-package lsp-mode
-  :ensure t)
-
-(use-package lsp-ui
-  :ensure t)
-
-(use-package lsp-ivy
-  :ensure t)
-
-(use-package lsp-treemacs
-  :ensure t
-  :config
-  (setq lsp-enable-which-key-interaction t))
-
 (use-package clojure-mode
   :ensure t
   :config
